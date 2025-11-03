@@ -1,0 +1,253 @@
+/* ==========================
+   기본 스타일
+========================== */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+h1,h2,h3,h4 { margin: 0 0 15px 0; }
+
+/* ==========================
+   헤더
+========================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+.logo a { font-size: 26px; font-weight: bold; color: #007bff; text-decoration: none; }
+nav a { margin-left: 20px; color: #555; text-decoration: none; font-size: 15px; }
+.partner-btn { background-color: #007bff; color: white !important; padding: 8px 15px; border-radius: 5px; }
+
+/* ==========================
+   블루 섹션 (검색/소개 영역)
+========================== */
+#controls {
+    text-align: center;
+    padding: 40px 5%;
+    background-color: #007bff;
+    color: white;
+}
+#controls p { color: rgba(255,255,255,0.8); }
+#global-search {
+    padding: 12px 20px;
+    width: 80%;
+    max-width: 600px;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+#global-search:focus { border-color: #0056b3; outline: none; }
+
+/* 필터 버튼 */
+.filter-tags button {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.filter-tags button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* ==========================
+   유틸리티 카드
+========================== */
+#tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.tool-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.tool-card h3 { color: #007bff; margin-top: 0; }
+.tool-card p.hook { font-size: 16px; color: #495057; min-height: 40px; }
+.tool-card .tags span {
+    display: inline-block;
+    background-color: #e9f7ff;
+    color: #007bff;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.tool-card.strategic {
+    background-color: #fff3cd;
+    border: 2px dashed #ffc107;
+}
+.tool-card.hidden { display: none; }
+
+/* ==========================
+   카드형 섹션 (About / Contact / Policy / Blog)
+========================== */
+.card-section,
+.about-card,
+.contact-card,
+.policy-card,
+.blog-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    line-height: 1.8;
+}
+.card-section h1,
+.about-card h1,
+.contact-card h1,
+.policy-card h1,
+.blog-card h1 { text-align: center; color: #007bff; margin-bottom: 30px; }
+.card-section h2,
+.about-card h2,
+.contact-card h2,
+.policy-card h2,
+.blog-card h2 { color: #007bff; margin-top: 30px; margin-bottom: 20px; }
+.card-section p, .card-section ul,
+.about-card p, .about-card ul,
+.contact-card p, .contact-card ul, .contact-card form,
+.policy-card p, .policy-card ul,
+.blog-card p, .blog-card ul {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   블로그 이미지
+========================== */
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.blog-content figcaption {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+.blog-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    line-height: 1.8;
+}
+
+.blog-card h1 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.blog-card h2 {
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-card p, .blog-card ul {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.blog-content figcaption {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* ==========================
+   컨택폼
+========================== */
+.contact-card input,
+.contact-card textarea {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+}
+.contact-card button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.contact-card button:hover { background-color: #0056b3; }
+
+/* ==========================
+   푸터
+========================== */
+footer {
+    background-color: #343a40;
+    color: #ccc;
+    padding: 40px 5%;
+    font-size: 14px;
+}
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.footer-section { flex: 1 1 200px; min-width: 150px; }
+.footer-section h4 { color: white; margin-top: 0; margin-bottom: 15px; font-size: 16px; border-bottom: 1px solid #495057; padding-bottom: 5px; }
+.footer-section ul { list-style: none; padding: 0; }
+.footer-section a { color: #ccc; text-decoration: none; line-height: 2; transition: color 0.2s; }
+.footer-section a:hover { color: #007bff; }
+.footer-bottom {
+    border-top: 1px solid #495057;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+.footer-bottom a { color: #007bff; text-decoration: none; margin: 0 10px; }
