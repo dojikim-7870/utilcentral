@@ -11,7 +11,7 @@ const blogData = [
         title: "The Power of Connection",
         image: "images/blog2-connection.jpg",
         summary: "Instead of each site standing alone, UtilCentral connects them into one integrated network.",
-        url: "blog2.html"
+        url: "the-power-of-connection.html"
     },
     {
         id: 3,
@@ -42,4 +42,5 @@ function renderBlogCards() {
 }
 
 window.onload = renderBlogCards;
+
 
