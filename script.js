@@ -1,48 +1,94 @@
-// 1. 유틸리티 데이터 (toolsData)
+// =======================================================
+// UtilHub - script.js
+// 메인 페이지 검색, 카드 데이터, 공통 기능 포함
+// =======================================================
+
+// 1. 메인 페이지: 유틸리티 카드 데이터
 const toolsData = [
-  { id: 1, title: "Finance Tools Hub", hook: "Easily manage currencies, conversions, and financial calculations in one place!", tags: ["Loans","Income & Tax","Interest Calculators","Assets","Retirement"], url:"https://financetools.info" },
-  { id: 2, title: "Prompt Builder", hook: "Build and refine AI prompts instantly with real examples and smart templates.", tags: ["AI","Prompt","ChatGPT","Writing"], url:"https://promptbuilder.life" },
-  { id: 3, title: "Image Tool Suite", hook: "Compress, crop, blur, or make transparent PNGs online — all in one place.", tags: ["Image","Editing","Design","Photo"], url:"https://imagetool.info" },
-  { id: 4, title: "SolveKit Utilities", hook: "Convert files, extract data, and simplify work with powerful online tools.", tags: ["Utility","Converter","PDF","Productivity"], url:"https://solvekit.info" },
-  { id: 5, title: "Fixlo Productivity Hub", hook: "Stay organized with all-in-one calculators and focus tools for creators.", tags: ["Productivity","Focus","Toolkit","Utility"], url:"https://fixlo.info" },
-  { id: 6, title: "Petopia Animal Tools", hook: "Smart pet care calculators and breed tools for every animal lover.", tags: ["Pet","Animal","Health","Lifestyle"], url:"https://petopia.icu" },
-  { id: 7, title: "UtilHub Central", hook: "Your ultimate toolkit for daily use — converters, counters, and more.", tags: ["Utility","Tools","Converter","All-in-one"], url:"https://utilhub.xyz" },
-  { id: 8, title: "Dokit Online Tools", hook: "From time zones to text formatting, everything you need in one toolkit.", tags: ["Time","Converter","Document","Tool"], url:"https://dokit.online" },
-  { id: 9, title: "Convertly Suite", hook: "Instantly convert files, units, and data formats with precision.", tags: ["Conversion","Files","Units","Utility"], url:"https://convertly.icu" },
-  { id: 10, title: "K-Style Planner", hook: "Aesthetic Korean-style planner templates for Notion and productivity.", tags: ["Planner","Notion","Kstyle","Template"], url:"https://kstyle.site" },
-  { id: 11, title: "ToolMate Work Tools", hook: "Reliable online utilities for writing, reading, and creative tasks.", tags: ["Writing","Reading","SEO","Tools"], url:"https://toolmate.us" },
-  { id: 12, title: "MBTI Love", hook: "Discover your MBTI, compatibility, and personalized insights with fun tests.", tags: ["MBTI","Personality","Love","Test"], url:"https://mbtilove.xyz" },
-  { id: 13, title: "Thinko Mind Tools", hook: "Brain-boosting productivity and idea generation tools for smart creators.", tags: ["Productivity","Thinking","Idea","Mind"], url:"https://thinko.fun" },
-  { id: 14, title: "EduSpot Learning Hub", hook: "Smart study planners and AI-powered learning helpers for students.", tags: ["Education","Learning","AI","Study"], url:"https://eduspot.online" },
-  { id: 15, title: "New Tool Coming Soon!", hook: "The function you've been waiting for! A brand new tool will be released next Monday.", tags: ["ComingSoon","Update"], url:"coming-soon.html", isStrategic:true },
-  { id: 16, title: "Partner Program / Advertise", hook: "Get your tool in front of thousands of users. See our partnership options.", tags: ["Advertise","Partner","Business"], url:"advertise.html", isStrategic:true }
+    { id: 1, title: "Text to PDF Converter", hook: "Turn large Word files into a PDF document in just 1 second!", tags: ["PDF", "Converter", "Document", "Word", "TXT"], url: "tools/text-to-pdf.html" },
+    { id: 2, title: "Text Length Counter", hook: "Stop manual counting! Get a real-time word and character count.", tags: ["Content", "WordCount", "SEO", "Productivity"], url: "tools/text-length.html" },
+    { id: 3, title: "QR Code Generator", hook: "Convert any link into a clean QR code in 0.5 seconds. Customizable design.", tags: ["Marketing", "QR", "Design", "Link"], url: "tools/qr-generator.html" },
+    { id: 4, title: "Currency Converter", hook: "Shopping overseas? Get the most accurate, real-time exchange rates now.", tags: ["Finance", "Economy", "Exchange", "Money"], url: "tools/currency.html" },
+    { id: 5, title: "Reading Time Estimator", hook: "Find out the exact time needed to read your content and boost user engagement.", tags: ["Content", "UX", "Time", "Reading"], url: "tools/reading-time.html" },
+    { id: 6, title: "Image Compressor", hook: "Speed up your website! Optimize and compress images with minimal quality loss.", tags: ["Optimization", "Image", "WebSpeed", "JPG"], url: "tools/image-compressor.html" },
+    { id: 7, title: "Password Generator", hook: "Stop worrying about security. Generate strong, customizable passwords instantly.", tags: ["Security", "Random", "Crypto", "Access"], url: "tools/password-generator.html" },
+    { id: 8, title: "Color Palette Extractor", hook: "Need a color code? Instantly extract HEX/RGB from any image or website.", tags: ["Design", "Color", "HEX", "RGB"], url: "tools/color-extractor.html" },
+    { id: 9, title: "URL Shortener", hook: "Tidy up messy URLs and track click statistics with a single, clean link.", tags: ["Marketing", "Link", "Analytics", "Traffic"], url: "tools/url-shortener.html" },
+    { id: 10, title: "Base64 Encoder/Decoder", hook: "A developer's essential: Encode and decode Base64 strings locally and quickly.", tags: ["DeveloperTool", "Encoding", "Crypto", "Data"], url: "tools/base64.html" },
+    { id: 11, title: "JSON Formatter", hook: "Clean up unreadable JSON! Easily validate and format it for debugging.", tags: ["DeveloperTool", "JSON", "Data", "Formatting"], url: "tools/json-formatter.html" },
+    { id: 12, title: "Screen Recorder/Capture", hook: "Need a quick screenshot or video? Use this tool instantly without any installation.", tags: ["Capture", "Video", "Productivity", "Utility"], url: "tools/screen-recorder.html" },
+    { id: 13, title: "CSV to JSON Converter", hook: "Quickly convert your data format from CSV to structured JSON with one click.", tags: ["DataConversion", "CSV", "JSON", "DeveloperTool"], url: "tools/csv-to-json.html" },
+    { id: 14, title: "Time Zone Converter", hook: "Never miss a global meeting! Compare and convert time zones accurately.", tags: ["Global", "Scheduling", "Time", "Productivity"], url: "tools/time-converter.html" },
+    { id: 15, title: "New Tool Coming Soon!", hook: "The function you've been waiting for! A brand new tool will be released next Monday.", tags: ["ComingSoon", "Update"], url: "[Coming Soon Page URL]", isStrategic: true },
+    { id: 16, title: "Partner Program / Advertise", hook: "Get your tool in front of thousands of users. See our partnership options.", tags: ["Advertise", "Partner", "Business"], url: "[Advertisement Info URL]", isStrategic: true }
 ];
 
-// 2. DOM 요소 가져오기
-const toolGrid = document.getElementById('tool-grid');
-const searchInput = document.getElementById('global-search');
-
-// 3. 카드 생성 및 렌더링
-function renderCards(tools){
-  toolGrid.innerHTML = '';
-  tools.forEach(tool => {
-    const card = document.createElement('a');
-    card.className = 'tool-card' + (tool.isStrategic ? ' strategic' : '');
-    card.href = tool.url;
-    card.target = '_blank';
-    const tagHtml = tool.tags.map(tag=>`<span>#${tag}</span>`).join('');
-    card.innerHTML = `<h3>${tool.title}</h3><p class="hook">${tool.hook}</p><div class="tags">${tagHtml}</div>`;
-    toolGrid.appendChild(card);
-  });
+// 2. 메인 페이지: 카드 렌더링 함수
+function renderCards(tools) {            
+    const toolGrid = document.getElementById('tool-grid');
+    if (!toolGrid) return; // 메인 페이지가 아닐 경우 실행하지 않음
+    
+    toolGrid.innerHTML = ''; 
+    tools.forEach(tool => {                
+        const card = document.createElement('a');                
+        card.className = 'tool-card' + (tool.isStrategic ? ' strategic' : '');                
+        card.href = tool.url;                                
+        const tagHtml = tool.tags.map(tag => `<span>#${tag}</span>`).join('');                                
+        card.innerHTML = `                    
+            <h3>${tool.title}</h3>                    
+            <p class="hook">${tool.hook}</p>                    
+            <div class="tags">${tagHtml}</div>                
+        `;                
+        toolGrid.appendChild(card);            
+    });        
 }
 
-// 4. 검색
-searchInput.addEventListener('keyup', e=>{
-  const term = e.target.value.toLowerCase().trim();
-  if(!term){ renderCards(toolsData); return; }
-  const filtered = toolsData.filter(tool=> (tool.title+' '+tool.hook+' '+tool.tags.join(' ')).toLowerCase().includes(term));
-  renderCards(filtered);
-});
+// 3. 메인 페이지: 검색 기능 초기화
+function initializeSearch() {
+    const searchInput = document.getElementById('global-search');
+    if (!searchInput) return;
 
-// 5. 초기 로드
-window.onload = ()=>{ renderCards(toolsData); };
+    searchInput.addEventListener('keyup', (e) => {            
+        const searchTerm = e.target.value.toLowerCase().trim();                        
+
+        if (searchTerm === '') {                
+            renderCards(toolsData); 
+            return;            
+        }
+
+        const filteredTools = toolsData.filter(tool => {                
+            const fullText = (tool.title + ' ' + tool.hook + ' ' + tool.tags.join(' ')).toLowerCase();                
+            return fullText.includes(searchTerm);            
+        });                        
+        renderCards(filteredTools);        
+    });
+
+    // 초기 로드 시 전체 카드 렌더링
+    renderCards(toolsData);    
+}
+
+// 4. 공통: 초기화 함수
+document.addEventListener('DOMContentLoaded', function() {
+    // 메인 페이지 기능 실행
+    initializeSearch();
+    
+    /* ⭐ [추가 3] 햄버거 메뉴 토글 기능 */
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // 메뉴 아이템 클릭 시 메뉴 자동 닫기 (선택 사항)
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // 모바일 환경에서만 닫도록 조건 추가 가능
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+    }
+});

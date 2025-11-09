@@ -1,253 +1,253 @@
-/* ==========================
-   기본 스타일
-========================== */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    background-color: #f8f9fa;
-    color: #333;
-}
-h1,h2,h3,h4 { margin: 0 0 15px 0; }
+/* =======================================================
+   UtilHub - style.css
+   모든 페이지에서 공통적으로 사용되는 CSS 스타일
+   ======================================================= */
 
-/* ==========================
-   헤더
-========================== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+/* --- 1. Global & Reset Styles --- */
+body { 
+    font-family: 'Arial', sans-serif; 
+    margin: 0; 
+    background-color: #f8f9fa; 
+    color: #333; 
 }
-.logo a { font-size: 26px; font-weight: bold; color: #007bff; text-decoration: none; }
-nav a { margin-left: 20px; color: #555; text-decoration: none; font-size: 15px; }
-.partner-btn { background-color: #007bff; color: white !important; padding: 8px 15px; border-radius: 5px; }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 15px; 
+}
+a { text-decoration: none; color: inherit; }
 
-/* ==========================
-   블루 섹션 (검색/소개 영역)
-========================== */
-#controls {
+/* --- 2. Header & Navigation Styles (공통) --- */
+header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 15px 5%; background-color: #ffffff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
+}
+.logo a { 
+    font-size: 26px; 
+    font-weight: bold; 
+    color: #007bff; /* UtilHub 로고 색상 */
+    text-decoration: none; 
+}
+.main-nav a { 
+    margin-left: 20px; color: #555; text-decoration: none; font-size: 15px; 
+    transition: color 0.2s;
+}
+.main-nav a:hover {
+    color: #007bff;
+}
+.partner-btn { 
+    background-color: #007bff; color: white !important; padding: 8px 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.2s;
+}
+.partner-btn:hover {
+    background-color: #0056b3;
+}
+.nav-item.active { 
+    font-weight: bold; color: #007bff; 
+}
+
+/* --- 3. Hero & Controls Styles (index.html, about.html, faq.html) --- */
+.hero { 
+    background-color: #e9ecef; 
+    padding: 3rem 5%; 
     text-align: center;
-    padding: 40px 5%;
-    background-color: #007bff;
-    color: white;
 }
-#controls p { color: rgba(255,255,255,0.8); }
-#global-search {
-    padding: 12px 20px;
-    width: 80%;
-    max-width: 600px;
-    border: 2px solid #ddd;
-    border-radius: 50px;
-    font-size: 16px;
+/* index.html 전용 오버라이드 */
+#controls { 
+    text-align: center; padding: 40px 5%; 
+    background-color: #007bff; /* 로고 색상 배경 */
+    color: white; 
+}
+#controls h1 { color: white; }
+#controls p { color: rgba(255, 255, 255, 0.8); }
+
+#global-search { 
+    padding: 12px 20px; width: 80%; max-width: 600px; 
+    border: 2px solid #ddd; border-radius: 50px; font-size: 16px; 
     transition: border-color 0.3s;
 }
 #global-search:focus { border-color: #0056b3; outline: none; }
 
-/* 필터 버튼 */
-.filter-tags button {
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    padding: 8px 15px;
-    border-radius: 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-}
-.filter-tags button.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-}
-
-/* ==========================
-   유틸리티 카드
-========================== */
+/* --- 4. Card Grid Styles (index.html) --- */
 #tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px 5%;
-    max-width: 1300px;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
+    max-width: 1300px; 
     margin: 0 auto;
 }
 .tool-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 25px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    background-color: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px; transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none; color: inherit; display: block;
 }
-.tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
+.tool-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
 .tool-card h3 { color: #007bff; margin-top: 0; }
 .tool-card p.hook { font-size: 16px; color: #495057; min-height: 40px; }
-.tool-card .tags span {
-    display: inline-block;
-    background-color: #e9f7ff;
-    color: #007bff;
-    font-size: 12px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-right: 5px;
+.tool-card .tags span { 
+    display: inline-block; background-color: #e9f7ff; color: #007bff; 
+    font-size: 12px; padding: 3px 8px; border-radius: 3px; margin-right: 5px; 
 }
-.tool-card.strategic {
-    background-color: #fff3cd;
-    border: 2px dashed #ffc107;
-}
-.tool-card.hidden { display: none; }
+.tool-card.strategic { background-color: #fff3cd; border: 2px dashed #ffc107; }
 
-/* ==========================
-   카드형 섹션 (About / Contact / Policy / Blog)
-========================== */
-.card-section,
-.about-card,
-.contact-card,
-.policy-card,
-.blog-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 30px 40px;
-    max-width: 900px;
-    margin: 40px auto;
-    line-height: 1.8;
+/* --- 5. About Page Specific Styles --- */
+.large-cards-container {
+    display: flex; gap: 30px; margin-top: 40px; flex-wrap: wrap; justify-content: center;
 }
-.card-section h1,
-.about-card h1,
-.contact-card h1,
-.policy-card h1,
-.blog-card h1 { text-align: center; color: #007bff; margin-bottom: 30px; }
-.card-section h2,
-.about-card h2,
-.contact-card h2,
-.policy-card h2,
-.blog-card h2 { color: #007bff; margin-top: 30px; margin-bottom: 20px; }
-.card-section p, .card-section ul,
-.about-card p, .about-card ul,
-.contact-card p, .contact-card ul, .contact-card form,
-.policy-card p, .policy-card ul,
-.blog-card p, .blog-card ul {
-    color: #555;
-    margin-bottom: 20px;
+.large-card {
+    background-color: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px; flex: 1 1 300px; text-align: center; transition: transform 0.3s;
+}
+.large-card:hover { transform: translateY(-5px); }
+.large-card h3 { color: #007bff; margin-top: 0; font-size: 1.8em; }
+.large-card p { color: #555; line-height: 1.6; }
+.icon { font-size: 3em; margin-bottom: 15px; color: #28a745; }
+@media (max-width: 768px) {
+    .large-cards-container { flex-direction: column; }
 }
 
-/* ==========================
-   블로그 이미지
-========================== */
-.blog-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* --- 6. FAQ Page Specific Styles --- */
+.faq-item {
+    background: white; margin-bottom: 10px; border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); overflow: hidden;
 }
-.blog-content figcaption {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-top: 5px;
+.faq-question {
+    padding: 18px 25px; font-size: 1.1em; font-weight: 600; color: #007bff;
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; border-bottom: 1px solid #eee;
 }
-.blog-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 40px;
-    max-width: 900px;
-    margin: 40px auto;
-    line-height: 1.8;
+.faq-question:hover { background-color: #f7f7f7; }
+.faq-answer {
+    padding: 0 25px; background: #fff; max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease-out;
 }
+.faq-answer p { padding: 15px 0; margin: 0; color: #555; line-height: 1.6; }
+.faq-question::after { content: '+'; font-size: 1.2em; transition: transform 0.3s; }
+.faq-item.active .faq-question::after { content: '-'; transform: rotate(180deg); }
+.faq-item.active .faq-answer { max-height: 500px; border-top: none; }
 
-.blog-card h1 {
-    color: #007bff;
-    margin-top: 0;
-    margin-bottom: 20px;
+/* --- 7. Policy Page Specific Styles --- */
+.policy-content { 
+    max-width: 900px; margin: 40px auto; padding: 20px; background: white; 
+    border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); line-height: 1.8; 
 }
+.policy-content h1 { text-align: center; color: #007bff; margin-bottom: 30px; }
+.policy-content h2 { color: #333; margin-top: 30px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+.policy-content p, .policy-content ul { margin-bottom: 20px; color: #555; }
 
-.blog-card h2 {
-    color: #007bff;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-.blog-card p, .blog-card ul {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.blog-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.blog-content figcaption {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-top: 5px;
-}
-
-/* ==========================
-   컨택폼
-========================== */
-.contact-card input,
-.contact-card textarea {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    width: 100%;
-    padding: 10px;
-}
-.contact-card button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-}
-.contact-card button:hover { background-color: #0056b3; }
-
-/* ==========================
-   푸터
-========================== */
-footer {
-    background-color: #343a40;
-    color: #ccc;
-    padding: 40px 5%;
-    font-size: 14px;
+/* --- 8. Footer Styles (공통) --- */
+footer { 
+    background-color: #343a40; color: #ccc; padding: 40px 5%; font-size: 14px; 
 }
 .footer-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+    max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;
 }
 .footer-section { flex: 1 1 200px; min-width: 150px; }
 .footer-section h4 { color: white; margin-top: 0; margin-bottom: 15px; font-size: 16px; border-bottom: 1px solid #495057; padding-bottom: 5px; }
 .footer-section ul { list-style: none; padding: 0; }
 .footer-section a { color: #ccc; text-decoration: none; line-height: 2; transition: color 0.2s; }
 .footer-section a:hover { color: #007bff; }
-.footer-bottom {
-    border-top: 1px solid #495057;
-    margin-top: 30px;
-    padding-top: 20px;
+.footer-bottom { border-top: 1px solid #495057; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 13px; }
+.footer-bottom a { color: #007bff; text-decoration: none; margin: 0 10px; }/* 카드 기본 스타일 */
+.tool-card {
+    padding: 20px;
+    border-radius: 16px;
+    margin: 10px;
     text-align: center;
-    font-size: 13px;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    background: linear-gradient(135deg, #ffffff00 0%, #ffffff11 100%);
+    backdrop-filter: blur(2px);
 }
-.footer-bottom a { color: #007bff; text-decoration: none; margin: 0 10px; }
+
+/* hover 시 확대 + 그림자 강조 */
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* 도메인 텍스트 */
+.tool-card .domain {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* 카드 배경 그라데이션: 사이트별 */
+.imgtool { background: linear-gradient(135deg, #4A90E2, #1E3C72); }
+.fixlo { background: linear-gradient(135deg, #A64CA6, #6B1F6F); }
+.solvekit { background: linear-gradient(135deg, #3CB371, #2E8B57); }
+.financetools { background: linear-gradient(135deg, #FFA500, #FF8C00); }
+.convertly { background: linear-gradient(135deg, #1E90FF, #104E8B); }
+.toolmate { background: linear-gradient(135deg, #FF69B4, #C71585); }
+.promptbuilder { background: linear-gradient(135deg, #800080, #4B0082); }
+.mbtilove { background: linear-gradient(135deg, #FF4500, #8B0000); }
+.kstyle { background: linear-gradient(135deg, #FFB6C1, #FF69B4); }
+.dokit { background: linear-gradient(135deg, #00CED1, #008B8B); }
+.solvekit2 { background: linear-gradient(135deg, #32CD32, #228B22); }
+.imagetool2 { background: linear-gradient(135deg, #4682B4, #1C3F70); }
+.fixlo2 { background: linear-gradient(135deg, #9370DB, #663399); }
+.financetools2 { background: linear-gradient(135deg, #FF8C00, #FF4500); }
+.convertly2 { background: linear-gradient(135deg, #4169E1, #27408B); }
+.toolmate2 { background: linear-gradient(135deg, #FF1493, #C71585); }
+/* -------------------------------------- */
+/* 9. 모바일 햄버거 메뉴 스타일링 */
+/* -------------------------------------- */
+.hamburger-menu {
+    display: none; /* 기본적으로 숨김 (데스크톱에서는 보이지 않음) */
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+    padding: 5px;
+    z-index: 1001; /* 다른 요소 위에 표시 */
+}
+
+/* 미디어 쿼리: 768px 이하 모바일 환경 */
+@media (max-width: 768px) {
+    /* 햄버거 버튼 표시 */
+    .hamburger-menu {
+        display: block; 
+    }
+
+    /* 메인 메뉴 숨김 및 레이아웃 변경 */
+    .main-nav {
+        display: none; /* 기본적으로 숨김 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* 헤더 높이만큼 아래에 위치 (필요에 따라 조정) */
+        right: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 5%;
+        z-index: 1000;
+        text-align: right; /* 메뉴 항목을 오른쪽 정렬 */
+    }
+    
+    /* 메뉴가 활성화되었을 때만 표시 */
+    .main-nav.active {
+        display: flex;
+    }
+    
+    /* 모바일 메뉴 아이템 간격 조정 */
+    .main-nav a {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        display: block;
+    }
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    /* 헤더의 패딩을 줄여 공간 확보 */
+    header {
+        padding: 10px 5%;
+    }
+}

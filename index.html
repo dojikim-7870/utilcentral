@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +46,11 @@
 
 <header>
   <div class="logo"><a href="#">UtilCentral</a></div>
-  <nav class="main-nav">
+  
+  <button class="hamburger-menu" id="hamburger">
+      &#9776; </button>
+  
+  <nav class="main-nav" id="main-nav">
     <a href="#tool-grid">🛠️ Utilities</a>
     <a href="[EXTERNAL_COMMUNITY_URL]" target="_blank">💬 Community</a>
     <a href="request.html">💡 Request/Suggest</a>
@@ -56,7 +61,7 @@
 <div id="controls">
   <h1>Find the Perfect Tool for Any Task</h1>
   <p>Search over 14 essential utilities with a single click.</p>
- <input type="text" id="global-search" placeholder="Search by tool name, function, or tag (e.g., AI, MBTI, PDF, Time Zone)...">
+  <input type="text" id="global-search" placeholder="Search by tool name, function, or tag...">
 </div>
 
 
@@ -361,7 +366,6 @@ if (searchInput) {
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
