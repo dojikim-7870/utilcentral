@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /cgi-bin/
+
+# Sitemap
+Sitemap: https://www.utilcentral.com/sitemap.xml

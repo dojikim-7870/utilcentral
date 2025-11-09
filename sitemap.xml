@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- ===============================
+         🔹 MAIN SITE STRUCTURE
+    ================================ -->
+    <url>
+        <loc>https://www.utilcentral.com/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- ===============================
+         🔹 TOP MENU PAGES
+    ================================ -->
+    <url>
+        <loc>https://www.utilcentral.com/utilities.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/community.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/request.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/partner.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ===============================
+         🔹 FOOTER LINKS
+    ================================ -->
+    <url>
+        <loc>https://www.utilcentral.com/privacy.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/terms.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/contact.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/about.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/blog.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/faq.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ===============================
+         🔹 TOOL HUB SECTIONS
+    ================================ -->
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/finance-tools-hub.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/prompt-builder.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/image-tool-suite.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/solvekit-utilities.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/fixlo-productivity-hub.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/petopia-animal-tools.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/utilhub-central.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/dokit-online-tools.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/convertly-suite.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/kstyle-planner.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/toolmate-work-tools.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/mbti-love.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/thinko-mind-tools.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/eduspot-learning-hub.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/tools/new-tool-coming-soon.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://www.utilcentral.com/partner-program.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
