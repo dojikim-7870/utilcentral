@@ -4,7 +4,7 @@ const blogData = [
         title: "Why UtilCentral Exists",
         image: "images/blog1-main.jpg",
         summary: "Building a network that empowers creators, connects ideas, and amplifies visibility.",
-        url: "blog1.html"
+        url: "why-utilcentral-exists.html"
     },
     {
         id: 2,
@@ -42,3 +42,4 @@ function renderBlogCards() {
 }
 
 window.onload = renderBlogCards;
+
