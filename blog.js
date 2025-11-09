@@ -18,7 +18,7 @@ const blogData = [
         title: "A Global Approach",
         image: "images/blog3-global.jpg",
         summary: "English-based content allows UtilCentral sites to reach users across all regions efficiently.",
-        url: "blog3.html"
+        url: "vision.html"
     }
 ];
 
@@ -42,5 +42,6 @@ function renderBlogCards() {
 }
 
 window.onload = renderBlogCards;
+
 
 
