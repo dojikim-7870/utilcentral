@@ -1,9 +1,9 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /temp/
-Disallow: /test/
-Disallow: /cgi-bin/
+# robots.txt for UtilCentral
 
-# Sitemap
+User-agent: *
+Disallow: /node_modules/
+Disallow: /assets/private/
+Disallow: /drafts/
+
+# 사이트맵 위치
 Sitemap: https://www.utilcentral.com/sitemap.xml
