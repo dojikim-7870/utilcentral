@@ -4,16 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Community | UtilCentral</title>
-
-<meta name="description" content="Join the UtilCentral Community. Login with Google to post, comment, and interact with other users.">
-<meta name="keywords" content="community, forum, UtilCentral, posts, comments, Firebase, login">
-
+<meta name="description" content="Join the UtilCentral Community. Login with Google, Facebook, Twitter, Microsoft, or Apple to post, comment, and reply to other users.">
+<meta name="keywords" content="community, forum, UtilCentral, posts, comments, replies, Firebase, login">
 <link rel="canonical" href="https://www.utilcentral.com/community.html">
-
-<!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
-<!-- Google tag -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-04JWPMYZ7T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,11 +24,40 @@
 <script defer src="/__/firebase/12.5.0/firebase-firestore-compat.js"></script>
 <script defer src="/__/firebase/init.js"></script>
 
+<style>
+body { font-family: 'Roboto', sans-serif; background:#f8f9fa; margin:0; padding:0; color:#333; }
+header, footer { background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.1); padding:10px 20px; }
+.logo a { text-decoration:none; font-weight:bold; font-size:1.3em; color:#039be5; }
+.main-nav a { margin-right:15px; text-decoration:none; color:#555; font-weight:500; }
+.main-nav a.partner-btn { background:#ffa000; color:#fff; padding:5px 10px; border-radius:5px; }
+#controls { text-align:center; margin:20px 0; }
+#controls h1 { font-size:1.8em; margin-bottom:5px; color:#039be5; }
+#controls p { font-size:1em; color:#666; }
+
+.card { background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:20px; margin-bottom:15px; }
+.post-author { font-weight:bold; color:#039be5; }
+.post-timestamp { font-size:0.8em; color:#888; }
+textarea { width:100%; border:1px solid #ddd; border-radius:6px; padding:8px; resize:none; }
+button { background:#039be5; color:#fff; border:none; border-radius:6px; padding:6px 12px; cursor:pointer; transition:0.2s; }
+button:hover { background:#0277bd; }
+.comment, .reply { background:#f0f4f8; border-radius:8px; padding:10px; margin-top:8px; }
+.reply { margin-left:20px; background:#e3f2fd; }
+.comment-author, .reply-author { font-weight:bold; color:#0277bd; }
+.comment-timestamp, .reply-timestamp { font-size:0.75em; color:#555; }
+.login-btn { margin:5px 5px 10px 0; background:#039be5; }
+.login-btn[data-provider="facebook"] { background:#4267B2; }
+.login-btn[data-provider="twitter"] { background:#1DA1F2; }
+.login-btn[data-provider="microsoft"] { background:#2F2F2F; }
+.login-btn[data-provider="apple"] { background:#000; }
+#auth-section { text-align:center; margin-bottom:20px; }
+
+@media (max-width:600px){ #controls h1{font-size:1.5em;} button{width:100%; margin-bottom:8px;} .reply{margin-left:10px;} }
+</style>
 </head>
+
 <body>
 <header>
   <div class="logo"><a href="index.html">UtilCentral</a></div>
-  <button class="hamburger-menu" id="hamburger">&#9776;</button>
   <nav class="main-nav" id="main-nav"> 
     <a href="index.html">🛠️ Utilities</a>
     <a href="community.html">💬 Community</a>
@@ -43,29 +68,37 @@
 
 <div id="controls">
   <h1>Community</h1>
-  <p>Login with Google to post, comment, and reply to other users.</p>
+  <p>Login to post, comment, and reply to other users.</p>
 </div>
 
 <main>
-  <div style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
+  <div style="max-width:900px; margin:0 auto; padding:0 15px;">
 
-    <!-- 로그인/로그아웃 -->
+    <!-- 공지 -->
+    <div class="card" style="border-left:5px solid #ffa000;">
+      <h3>Welcome to the UtilCentral Community!</h3>
+      <p>Share tips, ask questions, and interact with other users. Keep discussions respectful and relevant to our online tools.</p>
+    </div>
+
+    <!-- 로그인 -->
     <div id="auth-section">
-      <button id="login-btn">Login with Google</button>
+      <button class="login-btn" data-provider="google">Login with Google</button>
+      <button class="login-btn" data-provider="facebook">Login with Facebook</button>
+      <button class="login-btn" data-provider="twitter">Login with Twitter</button>
+      <button class="login-btn" data-provider="microsoft">Login with Microsoft</button>
+      <button class="login-btn" data-provider="apple">Login with Apple</button>
       <button id="logout-btn" style="display:none;">Logout</button>
       <p id="user-info"></p>
     </div>
 
-    <!-- 글 작성 폼 -->
-    <div id="post-form" style="display:none; margin-top:20px;">
-      <textarea id="post-content" placeholder="Write your post here..." rows="4" cols="50"></textarea>
+    <!-- 글 작성 -->
+    <div id="post-form" class="card" style="display:none;">
+      <textarea id="post-content" rows="4" placeholder="Write your post..."></textarea>
       <button id="post-btn">Post</button>
     </div>
 
-    <!-- 글 목록 -->
-    <div id="posts-container" style="margin-top:30px;">
-      <!-- Firestore에서 실시간으로 글과 댓글 표시 -->
-    </div>
+    <!-- 게시글 리스트 -->
+    <div id="posts-container"></div>
 
   </div>
 </main>
@@ -102,7 +135,6 @@
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>&copy; 2025 UtilCentral. All Rights Reserved.</p>
   </div>
@@ -110,8 +142,8 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, OAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 // Firebase 초기화
 const firebaseConfig = {
@@ -123,8 +155,17 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const provider = new GoogleAuthProvider();
-const loginBtn = document.getElementById('login-btn');
+// Providers
+const providers = {
+  google: new GoogleAuthProvider(),
+  facebook: new FacebookAuthProvider(),
+  twitter: new TwitterAuthProvider(),
+  microsoft: new OAuthProvider('microsoft.com'),
+  apple: new OAuthProvider('apple.com')
+};
+
+// 요소
+const loginBtns = document.querySelectorAll('.login-btn');
 const logoutBtn = document.getElementById('logout-btn');
 const userInfo = document.getElementById('user-info');
 const postForm = document.getElementById('post-form');
@@ -132,94 +173,122 @@ const postContent = document.getElementById('post-content');
 const postBtn = document.getElementById('post-btn');
 const postsContainer = document.getElementById('posts-container');
 
-// 로그인/로그아웃
-loginBtn.addEventListener('click', () => signInWithPopup(auth, provider).catch(console.error));
+// 로그인
+loginBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const providerName = btn.getAttribute('data-provider');
+    const provider = providers[providerName];
+    signInWithPopup(auth, provider).catch(console.error);
+  });
+});
 logoutBtn.addEventListener('click', () => signOut(auth));
 
 // 로그인 상태 감지
 onAuthStateChanged(auth, user => {
   if(user){
-    loginBtn.style.display = 'none';
-    logoutBtn.style.display = 'inline-block';
+    loginBtns.forEach(b => b.style.display='none');
+    logoutBtn.style.display='inline-block';
     userInfo.textContent = `Hello, ${user.displayName}`;
-    postForm.style.display = 'block';
+    postForm.style.display='block';
   } else {
-    loginBtn.style.display = 'inline-block';
-    logoutBtn.style.display = 'none';
+    loginBtns.forEach(b => b.style.display='inline-block');
+    logoutBtn.style.display='none';
     userInfo.textContent = '';
-    postForm.style.display = 'none';
+    postForm.style.display='none';
   }
 });
 
 // 글 작성
-postBtn.addEventListener('click', async () => {
+postBtn.addEventListener('click', async ()=>{
   const content = postContent.value.trim();
-  if(!content) return alert("Please write something!");
+  if(!content) return alert("Write something!");
   const user = auth.currentUser;
   if(!user) return alert("Login first!");
-
-  await addDoc(collection(db, "posts"), {
-    author: user.displayName,
-    content: content,
-    timestamp: serverTimestamp(),
-    comments: []
+  await addDoc(collection(db,"posts"),{
+    author:user.displayName,
+    content:content,
+    timestamp:serverTimestamp(),
+    comments:[]
   });
-
-  postContent.value = '';
+  postContent.value='';
 });
 
 // 글 실시간 표시
-const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
-onSnapshot(q, snapshot => {
-  postsContainer.innerHTML = '';
-  snapshot.forEach(docSnap => {
+const q = query(collection(db,"posts"), orderBy("timestamp","desc"));
+onSnapshot(q,snapshot=>{
+  postsContainer.innerHTML='';
+  snapshot.forEach(docSnap=>{
     const data = docSnap.data();
     const postEl = document.createElement('div');
-    postEl.className = 'post';
-    postEl.style.borderBottom = '1px solid #ccc';
-    postEl.style.padding = '8px 0';
+    postEl.className='card post';
+
     postEl.innerHTML = `
-      <strong>${data.author}</strong>
+      <div class="post-author">${data.author}</div>
+      <div class="post-timestamp">${data.timestamp?.toDate? data.timestamp.toDate().toLocaleString() : ''}</div>
       <p>${data.content}</p>
-      <small>${data.timestamp?.toDate ? data.timestamp.toDate().toLocaleString() : ''}</small>
-      <div class="comments" style="margin-left:20px; margin-top:8px;"></div>
-      <textarea class="comment-input" placeholder="Write a comment..." rows="2" style="width:100%; margin-top:5px;"></textarea>
-      <button class="comment-btn" style="margin-bottom:10px;">Comment</button>
+      <div class="comments"></div>
+      <textarea class="comment-input" rows="2" placeholder="Write a comment..."></textarea>
+      <button class="comment-btn">Comment</button>
     `;
     postsContainer.appendChild(postEl);
 
     const commentsDiv = postEl.querySelector('.comments');
-    data.comments.forEach(c => {
+
+    (data.comments || []).forEach(c=>{
       const cEl = document.createElement('div');
-      cEl.innerHTML = `<strong>${c.author}</strong>: ${c.content} <small>${c.timestamp?.toDate ? c.timestamp.toDate().toLocaleString() : ''}</small>`;
+      cEl.className='comment';
+      cEl.innerHTML = `<div class="comment-author">${c.author}</div>
+                       <div class="comment-timestamp">${c.timestamp?.toDate? c.timestamp.toDate().toLocaleString() : ''}</div>
+                       <p>${c.content}</p>
+                       <div class="replies"></div>
+                       <textarea class="reply-input" rows="1" placeholder="Reply..."></textarea>
+                       <button class="reply-btn">Reply</button>`;
       commentsDiv.appendChild(cEl);
+
+      const repliesDiv = cEl.querySelector('.replies');
+      (c.replies || []).forEach(r=>{
+        const rEl = document.createElement('div');
+        rEl.className='reply';
+        rEl.innerHTML = `<div class="reply-author">${r.author}</div>
+                         <div class="reply-timestamp">${r.timestamp?.toDate? r.timestamp.toDate().toLocaleString() : ''}</div>
+                         <p>${r.content}</p>`;
+        repliesDiv.appendChild(rEl);
+      });
+
+      const replyBtn = cEl.querySelector('.reply-btn');
+      const replyInput = cEl.querySelector('.reply-input');
+      replyBtn.addEventListener('click', async()=>{
+        const replyText = replyInput.value.trim();
+        if(!replyText) return alert("Write a reply!");
+        const user = auth.currentUser;
+        if(!user) return alert("Login first!");
+        const postRef = doc(db,"posts",docSnap.id);
+        c.replies = c.replies || [];
+        c.replies.push({author:user.displayName,content:replyText,timestamp:serverTimestamp()});
+        const updatedComments = [...data.comments];
+        await updateDoc(postRef,{comments:updatedComments});
+        replyInput.value='';
+      });
     });
 
     // 댓글 작성
     const commentBtn = postEl.querySelector('.comment-btn');
     const commentInput = postEl.querySelector('.comment-input');
-    commentBtn.addEventListener('click', async () => {
+    commentBtn.addEventListener('click', async()=>{
       const commentText = commentInput.value.trim();
-      if(!commentText) return alert("Please write a comment!");
+      if(!commentText) return alert("Write a comment!");
       const user = auth.currentUser;
       if(!user) return alert("Login first!");
-      await updateDoc(doc(db, "posts", docSnap.id), {
-        comments: arrayUnion({
-          author: user.displayName,
-          content: commentText,
-          timestamp: serverTimestamp()
-        })
-      });
-      commentInput.value = '';
+      const postRef = doc(db,"posts",docSnap.id);
+      const newComment = {author:user.displayName, content:commentText, timestamp:serverTimestamp(), replies:[]};
+      const updatedComments = [...(data.comments||[]), newComment];
+      await updateDoc(postRef,{comments:updatedComments});
+      commentInput.value='';
     });
+
   });
 });
 </script>
-
-<style>
-#post-content, .comment-input { padding: 8px; margin-bottom: 8px; }
-#post-btn, .comment-btn { padding: 6px 12px; cursor: pointer; }
-</style>
 
 </body>
 </html>
