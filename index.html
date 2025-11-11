@@ -46,11 +46,7 @@
 
 <header>
   <div class="logo"><a href="#">UtilCentral</a></div>
-  
-  <button class="hamburger-menu" id="hamburger">
-      &#9776; </button>
-  
-  <nav class="main-nav" id="main-nav">
+  <nav class="main-nav">
     <a href="#tool-grid">🛠️ Utilities</a>
     <a href="[EXTERNAL_COMMUNITY_URL]" target="_blank">💬 Community</a>
     <a href="request.html">💡 Request/Suggest</a>
@@ -298,7 +294,25 @@
 @media (max-width: 900px)  { #tool-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px)  { #tool-grid { grid-template-columns: 1fr; } }
 </style>
+<script>
+// 기존 실시간 검색 기능 유지
+const toolsData = Array.from(document.querySelectorAll('.tool-card')).map((card, i) => ({
+    element: card,
+    title: card.querySelector('.domain')?.textContent || '',
+    hook: card.querySelector('p')?.textContent || ''
+}));
 
+const searchInput = document.getElementById('global-search');
+if (searchInput) {
+    searchInput.addEventListener('keyup', e => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        toolsData.forEach(tool => {
+            const fullText = (tool.title + ' ' + tool.hook).toLowerCase();
+            tool.element.style.display = fullText.includes(searchTerm) ? 'block' : 'none';
+        });
+    });
+}
+</script>
 
 <footer>
         <div class="footer-container">
@@ -348,7 +362,6 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
