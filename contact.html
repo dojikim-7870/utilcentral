@@ -69,7 +69,7 @@
 
             <section class="contact-form-section">  
                 <div class="form-container">
-                    <form action="mailto:support@utilhub.com" method="post" enctype="text/plain">
+                    <form action="https://formspree.io/f/xblqjovb" method="POST"> 
                         
                         <style>
                             .form-group { margin-bottom: 15px; }
@@ -101,29 +101,29 @@
 
                         <div class="form-group">
                             <label for="category">Inquiry Type</label>
-                            <select id="category" name="category" required>
+                            <select id="category" name="Inquiry_Type" required> 
                                 <option value="" disabled selected>-- Select a Category --</option>
-                                <option value="bug">Bug Report / Technical Issue</option>
-                                <option value="suggestion">New Tool Suggestion / Feature Request</option>
-                                <option value="partnership">Partnership / Advertising Inquiry</option>
-                                <option value="legal">Legal / Privacy Question</option>
-                                <option value="other">General Question / Other</option>
+                                <option value="Bug">Bug Report / Technical Issue</option>
+                                <option value="Suggestion">New Tool Suggestion / Feature Request</option>
+                                <option value="Partnership">Partnership / Advertising Inquiry</option>
+                                <option value="Legal">Legal / Privacy Question</option>
+                                <option value="Other">General Question / Other</option>
                             </select>
                         </div>
         
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                            <input type="text" id="name" name="Name" required placeholder="John Doe">
                         </div>
         
                         <div class="form-group">
                             <label for="email">Your Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                            <input type="email" id="email" name="_replyto" required placeholder="example@email.com">
                         </div>
         
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Describe your issue or suggestion in detail..."></textarea>
+                            <textarea id="message" name="Message" rows="6" required placeholder="Describe your issue or suggestion in detail..."></textarea>
                         </div>
         
                         <button type="submit" class="submit-btn">Send Message</button>
@@ -183,6 +183,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
