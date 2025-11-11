@@ -203,28 +203,34 @@ button {
 </header>
 
 <main>
-    <!-- Left Card -->
     <div class="card">
         <h2>Partnership Request</h2>
         <p>Apply to feature your website or tool on UtilCentral. Initial slots are free for the first 10 partners — perfect for early exposure!</p>
-        <form action="https://formsubmit.co/pcdb7777@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Partnership Request">
+        
+        <form action="https://formspree.io/f/xblqjovb" method="POST">
+            <input type="hidden" name="_subject" value="[PARTNERSHIP] New Partnership Request">
+            
             <input type="text" name="name" placeholder="Your Name / Brand" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="website" placeholder="Your Website URL" required>
+            
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            
+            <input type="text" name="Website_URL" placeholder="Your Website URL" required>
             <textarea name="details" placeholder="Briefly describe your site or tool..." rows="5" required></textarea>
             <button type="submit">Submit Request</button>
         </form>
     </div>
 
-    <!-- Right Card -->
     <div class="card">
         <h2>Feature or Suggestion</h2>
         <p>Have an idea, feedback, or want to recommend a new feature or category? Let us know below!</p>
-        <form action="https://formsubmit.co/pcdb7777@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Feature or Suggestion">
+        
+        <form action="https://formspree.io/f/xblqjovb" method="POST">
+            <input type="hidden" name="_subject" value="[SUGGESTION] New Feature or Suggestion">
+            
             <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
+            
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            
             <textarea name="suggestion" placeholder="Share your suggestion or idea..." rows="5" required></textarea>
             <select name="type" required>
                 <option value="">Select Type</option>
@@ -281,6 +287,7 @@ button {
 
 </body>
 </html>
+
 
 
 
