@@ -65,30 +65,71 @@
 <main>
     <div style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
         <div class="large-card" style="text-align: left; padding: 30px;">
-            <p>We’d love to hear from you! Whether you have a question, suggestion, or need support, our team is here to help.</p>
+            <p style="margin-bottom: 25px;">We’d love to hear from you! Whether you have a question, suggestion, or need support, our team is here to help. Please use the form below to send us a direct message.</p>
+
+            <section class="contact-form-section">  
+                <div class="form-container">
+                    <form action="mailto:support@utilhub.com" method="post" enctype="text/plain">
+                        
+                        <style>
+                            .form-group { margin-bottom: 15px; }
+                            .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+                            .form-group input, .form-group select, .form-group textarea {
+                                width: 100%;
+                                padding: 10px;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+                            }
+                            .submit-btn {
+                                width: 100%; /* 버튼을 크게 (전체 너비) */
+                                padding: 15px; /* 버튼 패딩을 크게 */
+                                background-color: #007bff;
+                                color: white;
+                                border: none;
+                                border-radius: 6px;
+                                cursor: pointer;
+                                font-size: 1.1em;
+                                font-weight: bold;
+                                transition: background-color 0.3s;
+                                margin-top: 10px;
+                            }
+                            .submit-btn:hover {
+                                background-color: #0056b3;
+                            }
+                        </style>
+
+                        <div class="form-group">
+                            <label for="category">Inquiry Type</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>-- Select a Category --</option>
+                                <option value="bug">Bug Report / Technical Issue</option>
+                                <option value="suggestion">New Tool Suggestion / Feature Request</option>
+                                <option value="partnership">Partnership / Advertising Inquiry</option>
+                                <option value="legal">Legal / Privacy Question</option>
+                                <option value="other">General Question / Other</option>
+                            </select>
+                        </div>
         
-            <p>When to send us an email:</p>
-            <ul>
-                <li><strong>General Inquiries:</strong> Ask about our tools, features, or upcoming updates.</li>
-                <li><strong>Bug Reports:</strong> If you notice an issue with any tool or feature, let us know with details so we can fix it quickly.</li>
-                <li><strong>Suggestions:</strong> Have an idea for a new tool or improvement? Share it with us!</li>
-                <li><strong>Partnerships:</strong> Interested in collaboration, promotion, or advertising? Contact us here.</li>
-            </ul>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
         
-            <p>Our contact form is a direct way to send messages to our support team. We typically respond within 24–48 hours. Please provide a clear subject and detailed message so we can assist you promptly.</p>
+                        <div class="form-group">
+                            <label for="email">Your Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
         
-            <form action="mailto:support@utilhub.com" method="post" enctype="text/plain">
-                <label for="name">Your Name:</label><br>
-                <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:15px; border: 1px solid #ccc; border-radius: 4px;"><br>
-            
-                <label for="email">Your Email:</label><br>
-                <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:15px; border: 1px solid #ccc; border-radius: 4px;"><br>
-            
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="6" required style="width:100%; padding:8px; margin-bottom:15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
-            
-                <button type="submit" style="padding:10px 20px; background-color:#007bff; color:white; border:none; border-radius:5px; cursor:pointer; font-weight: bold;">Send Message</button>
-            </form>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Describe your issue or suggestion in detail..."></textarea>
+                        </div>
+        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </section>
         </div>
     </div>
 </main>
@@ -142,6 +183,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
