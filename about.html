@@ -5,45 +5,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | UtilCentral</title>
-
-    <!-- SEO: 메타디스크립션 -->
-    <meta name="description" content="Learn more about UtilHub, your ultimate collection of free, fast, and essential online utilities. Discover our mission, team, and story.">
-    <meta name="keywords" content="about, UtilHub, online tools, utilities, productivity">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.utilcentral.com/about.html">
-
-    <!-- Open Graph (SNS 공유용) -->
-    <meta property="og:title" content="About Us | UtilHub">
-    <meta property="og:description" content="Learn more about UtilHub, your ultimate collection of free, fast, and essential online utilities. Discover our mission, team, and story.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.utilcentral.com/about.html">
-    <meta property="og:image" content="https://www.utilcentral.com/assets/about-banner.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Us | UtilHub">
-    <meta name="twitter:description" content="Learn more about UtilHub, your ultimate collection of free, fast, and essential online utilities. Discover our mission, team, and story.">
-    <meta name="twitter:image" content="https://www.utilcentral.com/assets/about-banner.png">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04JWPMYZ7T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-04JWPMYZ7T');
-</script>
-</head>
-
+    <title>About UtilCentral - Our Mission and Vision</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        /* 기본 스타일 (메인 index.html의 style.css에 포함될 내용) */
+        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f8f9fa; color: #333; }
+        .nav-link.active { font-weight: bold; color: #007bff; }
+        
+       
+        
+        /* --- About 페이지 전용 스타일 --- */
+        .hero { 
+            background-color: #e9ecef; 
+            padding: 3rem 5%; 
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .about-section {
+            padding: 50px 0;
+        }
+        
+        /* 큰 카드 섹션 스타일 */
+        .large-cards-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .large-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            flex: 1 1 300px; /* 반응형 카드 크기 설정 */
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .large-card:hover {
+            transform: translateY(-5px);
+        }
+        .large-card h3 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        .large-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #28a745; /* 아이콘 색상 */
+        }
+        
+        /* 미디어 쿼리 (모바일) */
+        @media (max-width: 768px) {
+            .large-cards-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    </head>
 <body>
-
-<header>
+    <header>
   <div class="logo"><a href="index.html">UtilCentral</a></div>
     
   <button class="hamburger-menu" id="hamburger">
@@ -56,36 +87,61 @@
     <a href="advertise.html" class="partner-btn">🌟 Partner/Advertise</a>
   </nav>
 </header>
-
-<div id="controls">
-  <h1>About</h1>
-  <p>Your ultimate collection of essential web tools, curated for productivity and efficiency.</p>
-</div>
-
-<main>
-    <div class="large-cards-container">
-        <div class="large-card" style="text-align: left;">
-            <h2>About UtilCentral</h2>
-            <p>UtilCentral is a network that brings together essential online tools in one connected ecosystem. Our goal is to empower creators, provide users with fast and reliable utilities, and create opportunities for collaboration and growth.</p>
-
-            <p>In a world of countless online tools, many great utilities go unnoticed. Developers spend time building amazing calculators, converters, AI helpers, and more, but attracting users and gaining recognition is challenging. UtilCentral solves this by integrating independent tool sites into a unified network.</p>
-
-            <p>🔗 <strong>The Power of Connection:</strong> Each tool remains independent but benefits from cross-promotion, shared visibility, and community traffic exchange. Small creators can grow together without large budgets or extensive marketing efforts.</p>
-
-            <p>🌍 <strong>A Global Approach:</strong> English-based content allows sites to reach users across all regions. Combined with browser auto-translation, tools are accessible anywhere, whether in Korea, the U.S., or elsewhere.</p>
-
-            <p>🚀 <strong>The Future of the Network:</strong> UtilCentral aims to become a hub where:</p>
-            <ul>
-                <li>Tool creators can share, collaborate, and learn.</li>
-                <li>Users can discover trustworthy and high-quality tools.</li>
-                <li>Advertisers can reach engaged audiences efficiently.</li>
-            </ul>
-
-            <p>By standardizing design, SEO structure, and AdSense compliance, every site in the network is optimized for user experience and monetization from day one.</p>
-        </div>
+    <main>
+       <section class="hero" style="background-color: #007bff; color: white;">
+    <div class="container">
+        <h2>**About UtilCentral**</h2>
+        <p style="font-size: 1.2em;">Empowering users with free, fast, and highly reliable web utilities for every daily task.</p>
     </div>
-</main>
- <footer>
+</section>
+
+
+        <section class="about-section">
+            <div class="container">
+                <h1 style="text-align: center; margin-bottom: 40px;">Our Core Philosophy</h1>
+                
+                <div class="large-cards-container">
+                    
+                    <div class="large-card">
+                        <div class="icon">✨</div>
+                        <h3>**Our Vision**</h3>
+                        <p>To be the world's most trusted, all-in-one platform for essential digital utilities. We envision a future where complex daily digital tasks are simplified for everyone, regardless of technical ability.</p>
+                        <p style="font-style: italic; margin-top: 20px; color: #777;">"Simplifying the Digital World, One Tool at a Time."</p>
+                    </div>
+
+                    <div class="large-card">
+                        <div class="icon">🎯</div>
+                        <h3>**Our Mission**</h3>
+                        <p>Our mission is to provide an expansive, curated collection of high-quality tools that are always free, fast, and secure. We focus on continuous improvement and user feedback to ensure our utilities meet real-world needs.</p>
+                        <p style="font-style: italic; margin-top: 20px; color: #777;">"Free, Fast, Secure: The UtilHub Promise."</p>
+                    </div>
+
+                    <div class="large-card">
+                        <div class="icon">🛡️</div>
+                        <h3>**Our Core Values**</h3>
+                        <p>
+                            <ul>
+                                <li>**Trust:** Prioritizing user privacy and data security.</li>
+                                <li>**Accessibility:** Ensuring tools are mobile-friendly and easy to use.</li>
+                                <li>**Quality:** Delivering accurate and reliable results every time.</li>
+                                <li>**Innovation:** Constantly exploring and adding new, useful utilities.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section style="background-color: #f0f0f0; padding: 40px 5%; text-align: center;">
+            <div class="container">
+                <h3 style="color: #333;">**Need to contact us?**</h3>
+                <p>We're always open to feedback, partnership inquiries, and tool suggestions.</p>
+                <a href="company/contact.html" style="display: inline-block; background-color: #28a745; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 15px;">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
         <div class="footer-container">
             <div class="footer-section">
                  <h4>UtilCentral</h4>
@@ -109,11 +165,11 @@
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="about.html">About UtilHub</a></li>
+                    <li><a href="about.html">About Us</a></li>
                 </ul>
             </div>
             
-         
+          
  <div class="footer-section">
                 <h4>Resources</h4>
                 <ul>
@@ -129,19 +185,9 @@
             
         </div>
     </footer>
-
-<script src="script.js"></script>
+    
+    <script>
+        // Placeholder for hamburger menu toggle if needed
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
