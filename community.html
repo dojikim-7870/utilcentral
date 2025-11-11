@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community | UtilCentral</title>
+
+<meta name="description" content="Join the UtilCentral Community. Login with Google to post, comment, and interact with other users.">
+<meta name="keywords" content="community, forum, UtilCentral, posts, comments, Firebase, login">
+
+<link rel="canonical" href="https://www.utilcentral.com/community.html">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04JWPMYZ7T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-04JWPMYZ7T');
+</script>
+
+<!-- Firebase SDK -->
+<script defer src="/__/firebase/12.5.0/firebase-app-compat.js"></script>
+<script defer src="/__/firebase/12.5.0/firebase-auth-compat.js"></script>
+<script defer src="/__/firebase/12.5.0/firebase-firestore-compat.js"></script>
+<script defer src="/__/firebase/init.js"></script>
+
+</head>
+<body>
+<header>
+  <div class="logo"><a href="index.html">UtilCentral</a></div>
+  <button class="hamburger-menu" id="hamburger">&#9776;</button>
+  <nav class="main-nav" id="main-nav"> 
+    <a href="index.html">🛠️ Utilities</a>
+    <a href="community.html">💬 Community</a>
+    <a href="request.html">💡 Request/Suggest</a>
+    <a href="advertise.html" class="partner-btn">🌟 Partner/Advertise</a>
+  </nav>
+</header>
+
+<div id="controls">
+  <h1>Community</h1>
+  <p>Login with Google to post, comment, and reply to other users.</p>
+</div>
+
+<main>
+  <div style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
+
+    <!-- 로그인/로그아웃 -->
+    <div id="auth-section">
+      <button id="login-btn">Login with Google</button>
+      <button id="logout-btn" style="display:none;">Logout</button>
+      <p id="user-info"></p>
+    </div>
+
+    <!-- 글 작성 폼 -->
+    <div id="post-form" style="display:none; margin-top:20px;">
+      <textarea id="post-content" placeholder="Write your post here..." rows="4" cols="50"></textarea>
+      <button id="post-btn">Post</button>
+    </div>
+
+    <!-- 글 목록 -->
+    <div id="posts-container" style="margin-top:30px;">
+      <!-- Firestore에서 실시간으로 글과 댓글 표시 -->
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>UtilCentral</h4>
+      <p>Your ultimate collection of free, fast, and essential online web utilities. Built for efficiency.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="https://imagetool.info">ImageTool</a></li>
+        <li><a href="https://fixlo.info">Fixlo</a></li>
+        <li><a href="https://solvekit.info">Solvekit</a></li>
+        <li><a href="https://financetools.info">FinanceTools</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Legal & Support</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="blog.html">Blog & Tutorials</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 UtilCentral. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
+// Firebase 초기화
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT",
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const provider = new GoogleAuthProvider();
+const loginBtn = document.getElementById('login-btn');
+const logoutBtn = document.getElementById('logout-btn');
+const userInfo = document.getElementById('user-info');
+const postForm = document.getElementById('post-form');
+const postContent = document.getElementById('post-content');
+const postBtn = document.getElementById('post-btn');
+const postsContainer = document.getElementById('posts-container');
+
+// 로그인/로그아웃
+loginBtn.addEventListener('click', () => signInWithPopup(auth, provider).catch(console.error));
+logoutBtn.addEventListener('click', () => signOut(auth));
+
+// 로그인 상태 감지
+onAuthStateChanged(auth, user => {
+  if(user){
+    loginBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+    userInfo.textContent = `Hello, ${user.displayName}`;
+    postForm.style.display = 'block';
+  } else {
+    loginBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    userInfo.textContent = '';
+    postForm.style.display = 'none';
+  }
+});
+
+// 글 작성
+postBtn.addEventListener('click', async () => {
+  const content = postContent.value.trim();
+  if(!content) return alert("Please write something!");
+  const user = auth.currentUser;
+  if(!user) return alert("Login first!");
+
+  await addDoc(collection(db, "posts"), {
+    author: user.displayName,
+    content: content,
+    timestamp: serverTimestamp(),
+    comments: []
+  });
+
+  postContent.value = '';
+});
+
+// 글 실시간 표시
+const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+onSnapshot(q, snapshot => {
+  postsContainer.innerHTML = '';
+  snapshot.forEach(docSnap => {
+    const data = docSnap.data();
+    const postEl = document.createElement('div');
+    postEl.className = 'post';
+    postEl.style.borderBottom = '1px solid #ccc';
+    postEl.style.padding = '8px 0';
+    postEl.innerHTML = `
+      <strong>${data.author}</strong>
+      <p>${data.content}</p>
+      <small>${data.timestamp?.toDate ? data.timestamp.toDate().toLocaleString() : ''}</small>
+      <div class="comments" style="margin-left:20px; margin-top:8px;"></div>
+      <textarea class="comment-input" placeholder="Write a comment..." rows="2" style="width:100%; margin-top:5px;"></textarea>
+      <button class="comment-btn" style="margin-bottom:10px;">Comment</button>
+    `;
+    postsContainer.appendChild(postEl);
+
+    const commentsDiv = postEl.querySelector('.comments');
+    data.comments.forEach(c => {
+      const cEl = document.createElement('div');
+      cEl.innerHTML = `<strong>${c.author}</strong>: ${c.content} <small>${c.timestamp?.toDate ? c.timestamp.toDate().toLocaleString() : ''}</small>`;
+      commentsDiv.appendChild(cEl);
+    });
+
+    // 댓글 작성
+    const commentBtn = postEl.querySelector('.comment-btn');
+    const commentInput = postEl.querySelector('.comment-input');
+    commentBtn.addEventListener('click', async () => {
+      const commentText = commentInput.value.trim();
+      if(!commentText) return alert("Please write a comment!");
+      const user = auth.currentUser;
+      if(!user) return alert("Login first!");
+      await updateDoc(doc(db, "posts", docSnap.id), {
+        comments: arrayUnion({
+          author: user.displayName,
+          content: commentText,
+          timestamp: serverTimestamp()
+        })
+      });
+      commentInput.value = '';
+    });
+  });
+});
+</script>
+
+<style>
+#post-content, .comment-input { padding: 8px; margin-bottom: 8px; }
+#post-btn, .comment-btn { padding: 6px 12px; cursor: pointer; }
+</style>
+
+</body>
+</html>
