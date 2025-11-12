@@ -2,21 +2,21 @@ const blogData = [
     {
         id: 1,
         title: "Why UtilCentral Exists",
-        image: "images/blog1-main.jpg",
+        image: "images/why-business.png",
         summary: "Building a network that empowers creators, connects ideas, and amplifies visibility.",
         url: "why-utilcentral-exists.html"
     },
     {
         id: 2,
         title: "The Power of Connection",
-        image: "images/blog2-connection.jpg",
+        image: "images/benefit.png",
         summary: "Instead of each site standing alone, UtilCentral connects them into one integrated network.",
         url: "the-power-of-connection.html"
     },
     {
         id: 3,
         title: "A Global Approach",
-        image: "images/blog3-global.jpg",
+        image: "images/global.png",
         summary: "English-based content allows UtilCentral sites to reach users across all regions efficiently.",
         url: "vision.html"
     }
@@ -42,6 +42,7 @@ function renderBlogCards() {
 }
 
 window.onload = renderBlogCards;
+
 
 
 
