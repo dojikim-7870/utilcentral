@@ -1,234 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community | UtilCentral</title>
-  <meta name="description" content="Join the UtilCentral Community. Discuss tools, suggest improvements, and connect with other users.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UtilCentral | The Ultimate Collection of Essential Web Tools</title>
 
-  <!-- Firebase SDK -->
-  <script defer src="/__/firebase/12.5.0/firebase-app-compat.js"></script>
-  <script defer src="/__/firebase/12.5.0/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/12.5.0/firebase-firestore-compat.js"></script>
-  <script defer src="/__/firebase/init.js"></script>
+    <!-- SEO: 메타디스크립션 -->
+    <meta name="description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
+    <meta name="keywords" content="UtilCentral, online tools, web utilities, productivity, finance, image editing, converters, free tools">
 
-  <style>
-    /* 게시판 전용 스타일 */
-    #community-header { max-width:900px; margin: 20px auto; padding:0 15px; }
-    .board-tabs { display:flex; gap:15px; margin-bottom:20px; flex-wrap:wrap; }
-    .board-tabs button { padding:10px 16px; border:none; border-radius:5px; background:#e0e0e0; cursor:pointer; transition:0.3s; }
-    .board-tabs button.active { background:#039be5; color:white; }
-    .login-buttons { display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
-    .login-buttons button { flex:1; min-width:120px; padding:10px; border:none; border-radius:5px; cursor:pointer; color:white; font-weight:600; }
-    .login-google{background:#DB4437;} .login-facebook{background:#4267B2;}
-    .login-twitter{background:#1DA1F2;} .login-microsoft{background:#F25022;}
-    .login-apple{background:#000000;}
-    .post-card { background:white; padding:20px; border-radius:8px; margin-bottom:15px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    .post-card h4 { margin:0 0 5px; }
-    .post-card p { margin:0 0 10px; }
-    .comments { margin-top:10px; padding-left:15px; border-left:2px solid #eee; }
-    .comment { margin-bottom:10px; }
-    .reply { margin-left:15px; border-left:1px dashed #ccc; padding-left:10px; }
-    .new-post { margin-bottom:20px; }
-    .new-post textarea { width:100%; min-height:60px; padding:10px; border-radius:5px; border:1px solid #ccc; resize:none; }
-    .new-post button { margin-top:10px; padding:8px 16px; border:none; border-radius:5px; background:#039be5; color:white; cursor:pointer; }
-    .comment-reply { font-size:0.9em; color:#555; cursor:pointer; margin-left:5px; }
-  </style>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.utilcentral.com/">
+
+    <!-- Open Graph (SNS 공유용) -->
+    <meta property="og:title" content="UtilCentral | The Ultimate Collection of Essential Web Tools">
+    <meta property="og:description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.utilcentral.com/">
+    <meta property="og:image" content="https://www.utilcentral.com/assets/homepage-banner.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UtilCentral | The Ultimate Collection of Essential Web Tools">
+    <meta name="twitter:description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
+    <meta name="twitter:image" content="https://www.utilcentral.com/assets/homepage-banner.png">
+<title>UtilCentral | Community Hub</title>
+
+<link rel="stylesheet" href="style.css">
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04JWPMYZ7T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-04JWPMYZ7T');
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCBQy9DkhsGQPkUyQ4SQYIyEaCa8iZI5p4",
+    authDomain: "utilcentral.firebaseapp.com",
+    projectId: "utilcentral",
+    storageBucket: "utilcentral.firebasestorage.app",
+    messagingSenderId: "277528401983",
+    appId: "1:277528401983:web:d52d74ea73564b8cdac08a",
+    measurementId: "G-EXL0961W0Z"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<style>
+/* 상단 로고 */
+header .logo a { color: #1E90FF !important; font-weight: 700; font-size: 1.6em; text-decoration: none; }
+/* 상단 메뉴 */
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 30px; }
+.main-nav { display: flex; gap: 20px; align-items: center; }
+
+/* 커뮤니티 타이틀 영역 */
+#community-header{
+  background-color: #007bff; 
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+
+/* 인트로 (헤더 아래 여백 + 이미지 섹션) */
+#community-intro {
+  text-align: center;
+  padding: 40px 20px 10px;
+}
+#community-intro img {
+  max-width: 180px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+#community-intro p {
+  color: #444;
+  font-size: 1.1em;
+}
+
+/* 게시판 가로 배치 */
+#community-boards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 20px 60px;
+}
+.board-section {
+  flex: 1 1 300px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.board-section textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  resize: none;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.board-section button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #1E90FF;
+  color: #fff;
+  cursor: pointer;
+}
+.board-section button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* 게시판 색상 */
+#free-board { background: #FFDDEE; } /* 연분홍 */
+#request-board { background: #FFFACD; } /* 연노랑 */
+#advertise-board { background: #CCFFCC; } /* 연그린 */
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo"><a href="index.html">UtilCentral</a></div>
-    <button class="hamburger-menu" id="hamburger">&#9776;</button>
-    <nav class="main-nav" id="main-nav">
-      <a href="index.html">🛠️ Utilities</a>
-      <a href="community.html" class="active">💬 Community</a>
-      <a href="request.html">💡 Request/Suggest</a>
-      <a href="advertise.html" class="partner-btn">🌟 Partner/Advertise</a>
-    </nav>
-  </header>
 
-  <div id="community-header">
-    <h1>UtilCentral Community</h1>
-    <p>Discuss tools, share ideas, and connect with other users.</p>
+<header>
+  <div class="logo"><a href="index.html">UtilCentral</a></div>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="community.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <a href="#" id="loginBtn">Login ▾</a>
+  </nav>
+</header>
 
-    <!-- 로그인 버튼 -->
-    <div class="login-buttons" id="login-buttons">
-      <button class="login-google" onclick="login('google')">Google</button>
-      <button class="login-facebook" onclick="login('facebook')">Facebook</button>
-      <button class="login-twitter" onclick="login('twitter')">Twitter</button>
-      <button class="login-microsoft" onclick="login('microsoft')">Microsoft</button>
-      <button class="login-apple" onclick="login('apple')">Apple</button>
+<div id="community-header">
+  <h1>Welcome to the Community Hub</h1>
+  <p>Connect, Share, and Discover with fellow users</p>
+</div>
+
+<!-- 여백 + 일러스트 추가 -->
+<section id="community-intro">
+  <img src="pen.png" alt="Community illustration">
+  <p>Share your ideas, collaborate with others, and make UtilCentral better together 🌱</p>
+</section>
+
+<div id="community-boards">
+  <!-- Free Board -->
+  <section class="board-section" id="free-board">
+    <h2>Free Board</h2>
+    <textarea id="fb-post-content" placeholder="Write your post here..." disabled></textarea>
+    <button id="fb-post-btn" class="post-btn" disabled>Post</button>
+    <div id="fb-posts"></div>
+  </section>
+
+  <!-- Request / Suggest -->
+  <section class="board-section" id="request-board">
+    <h2>Request / Suggest</h2>
+    <textarea id="rs-post-content" placeholder="Submit your suggestion..." disabled></textarea>
+    <button id="rs-post-btn" class="post-btn" disabled>Send</button>
+    <div id="rs-posts"></div>
+  </section>
+
+  <!-- Partner / Advertise -->
+  <section class="board-section" id="advertise-board">
+    <h2>Partner / Advertise</h2>
+    <textarea id="ad-post-content" placeholder="Write your advertisement or partnership request..." disabled></textarea>
+    <button id="ad-post-btn" class="post-btn" disabled>Post</button>
+    <div id="ad-posts"></div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>UtilCentral</h4>
+      <p>Your ultimate collection of free, fast, and essential online web utilities. Built for efficiency.</p>
+      <p style="margin-top: 15px;"></p>
     </div>
-
-    <!-- 게시판 메뉴 -->
-    <div class="board-tabs">
-      <button class="tab-btn active" data-board="notice">공지</button>
-      <button class="tab-btn" data-board="general">자유게시판</button>
-      <button class="tab-btn" data-board="request">Q&A / 제안</button>
-      <button class="tab-btn" data-board="partner">추천 / 홍보</button>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="https://imagetool.info">ImageTool</a></li>
+        <li><a href="https://fixlo.info">Fixlo</a></li>
+        <li><a href="https://solvekit.info">Solvekit</a></li>
+        <li><a href="https://financetools.info">FinanceTools</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Legal & Support</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="blog.html">Blog & Tutorials</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
     </div>
   </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 UtilCentral. All Rights Reserved.</p>
+  </div>
+</footer>
 
-  <main id="community-main" style="max-width:900px;margin:0 auto;padding:0 15px;">
-    <div class="new-post" id="new-post" style="display:none;">
-      <textarea id="post-content" placeholder="Write your post..."></textarea>
-      <button onclick="submitPost()">Post</button>
-    </div>
+<script>
+const auth = firebase.auth();
 
-    <div id="posts-container"></div>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>UtilCentral</h4>
-        <p>Your ultimate collection of free, fast, and essential online web utilities. Built for efficiency.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="https://imagetool.info">ImageTool</a></li>
-          <li><a href="https://fixlo.info">Fixlo</a></li>
-          <li><a href="https://solvekit.info">Solvekit</a></li>
-          <li><a href="https://financetools.info">FinanceTools</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Legal & Support</h4>
-        <ul>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="blog.html">Blog & Tutorials</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 UtilCentral. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    const db = firebase.firestore();
-    let user = null;
-
-    // 로그인 처리
-    function login(providerName){
-      let provider;
-      switch(providerName){
-        case 'google': provider = new firebase.auth.GoogleAuthProvider(); break;
-        case 'facebook': provider = new firebase.auth.FacebookAuthProvider(); break;
-        case 'twitter': provider = new firebase.auth.TwitterAuthProvider(); break;
-        case 'microsoft': provider = new firebase.auth.OAuthProvider('microsoft.com'); break;
-        case 'apple': provider = new firebase.auth.OAuthProvider('apple.com'); break;
-      }
-      firebase.auth().signInWithPopup(provider)
-        .then(result => {
-          user = result.user;
-          document.getElementById('new-post').style.display = 'block';
-          document.getElementById('login-buttons').style.display = 'none';
-        })
-        .catch(console.error);
-    }
-
-    // 게시판 탭 필터
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    let currentBoard = 'notice';
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        currentBoard = btn.dataset.board;
-        loadPosts(currentBoard);
-      });
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then(result => {
+      alert("Login successful: " + result.user.displayName);
+      document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = false);
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Login failed: " + error.message);
     });
+});
 
-    // 글쓰기
-    function submitPost(){
-      const content = document.getElementById('post-content').value.trim();
-      if(!user || !content) return alert('Please login and write content.');
-      db.collection('boards').doc(currentBoard).collection('posts').add({
-        author: user.displayName || 'Anonymous',
-        content: content,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        comments: []
-      }).then(() => {
-        document.getElementById('post-content').value='';
-      });
-    }
+auth.onAuthStateChanged(user => {
+  if (user) {
+    document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = false);
+  } else {
+    document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = true);
+  }
+});
+</script>
 
-    // 댓글 작성
-    function addComment(postId, text, parentId=null){
-      const postRef = db.collection('boards').doc(currentBoard).collection('posts').doc(postId);
-      if(parentId){
-        postRef.update({
-          comments: firebase.firestore.FieldValue.arrayUnion({author:user.displayName, content:text, timestamp:firebase.firestore.FieldValue.serverTimestamp(), replies:[], parentId})
-        });
-      } else {
-        postRef.update({
-          comments: firebase.firestore.FieldValue.arrayUnion({author:user.displayName, content:text, timestamp:firebase.firestore.FieldValue.serverTimestamp(), replies:[]})
-        });
-      }
-    }
-
-    // 게시글 실시간 로드
-    function loadPosts(board){
-      const container = document.getElementById('posts-container');
-      container.innerHTML='';
-      db.collection('boards').doc(board).collection('posts').orderBy('timestamp','desc')
-        .onSnapshot(snapshot=>{
-          container.innerHTML='';
-          snapshot.forEach(doc=>{
-            const post = doc.data();
-            const postCard = document.createElement('div');
-            postCard.className='post-card';
-            postCard.innerHTML = `
-              <h4>${post.author}</h4>
-              <p>${post.content}</p>
-              <div class="comments" id="comments-${doc.id}"></div>
-              ${user ? `<textarea id="comment-input-${doc.id}" placeholder="Write a comment..."></textarea>
-              <button onclick="submitComment('${doc.id}')">Comment</button>` : ''}
-            `;
-            container.appendChild(postCard);
-
-            // 댓글 렌더링
-            const commentsContainer = document.getElementById(`comments-${doc.id}`);
-            post.comments.forEach(c=>{
-              const div = document.createElement('div');
-              div.className='comment';
-              div.innerHTML=`<strong>${c.author}:</strong> ${c.content}`;
-              commentsContainer.appendChild(div);
-              if(c.replies){
-                c.replies.forEach(r=>{
-                  const rdiv=document.createElement('div');
-                  rdiv.className='comment reply';
-                  rdiv.innerHTML=`<strong>${r.author}:</strong> ${r.content}`;
-                  commentsContainer.appendChild(rdiv);
-                });
-              }
-            });
-          });
-        });
-    }
-
-    // 댓글 제출
-    function submitComment(postId){
-      const text = document.getElementById(`comment-input-${postId}`).value.trim();
-      if(!text) return;
-      addComment(postId, text);
-      document.getElementById(`comment-input-${postId}`).value='';
-    }
-
-    // 초기 load
-    loadPosts(currentBoard);
-  </script>
 </body>
 </html>
