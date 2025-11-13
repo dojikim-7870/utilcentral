@@ -1,133 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UtilCentral | The Ultimate Collection of Essential Web Tools</title>
-
-    <!-- SEO: 메타디스크립션 -->
-    <meta name="description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
-    <meta name="keywords" content="UtilCentral, online tools, web utilities, productivity, finance, image editing, converters, free tools">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.utilcentral.com/">
-
-    <!-- Open Graph (SNS 공유용) -->
-    <meta property="og:title" content="UtilCentral | The Ultimate Collection of Essential Web Tools">
-    <meta property="og:description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.utilcentral.com/">
-    <meta property="og:image" content="https://www.utilcentral.com/assets/homepage-banner.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UtilCentral | The Ultimate Collection of Essential Web Tools">
-    <meta name="twitter:description" content="UtilCentral is your ultimate collection of free, fast, and essential online web tools. Access productivity, image, finance, and utility tools all in one place.">
-    <meta name="twitter:image" content="https://www.utilcentral.com/assets/homepage-banner.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UtilCentral | Community Hub</title>
 
+<!-- SEO -->
+<meta name="description" content="Join the UtilCentral Community! Read, share, and discuss ideas with fellow users. Members can post and comment.">
+<meta name="keywords" content="UtilCentral, community, online discussion, boards, commentbox">
+
 <link rel="stylesheet" href="style.css">
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04JWPMYZ7T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-04JWPMYZ7T');
-</script>
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCBQy9DkhsGQPkUyQ4SQYIyEaCa8iZI5p4",
-    authDomain: "utilcentral.firebaseapp.com",
-    projectId: "utilcentral",
-    storageBucket: "utilcentral.firebasestorage.app",
-    messagingSenderId: "277528401983",
-    appId: "1:277528401983:web:d52d74ea73564b8cdac08a",
-    measurementId: "G-EXL0961W0Z"
-  };
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
 
 <style>
-/* 상단 로고 */
-header .logo a { color: #1E90FF !important; font-weight: 700; font-size: 1.6em; text-decoration: none; }
-/* 상단 메뉴 */
-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 30px; }
-.main-nav { display: flex; gap: 20px; align-items: center; }
+/* 상단 로고 & 메뉴 */
+header { display:flex; justify-content:space-between; align-items:center; padding:10px 30px; }
+header .logo a { font-weight:700; font-size:1.6em; color:#1E90FF; text-decoration:none; }
+.main-nav { display:flex; gap:20px; align-items:center; }
 
-/* 커뮤니티 타이틀 영역 */
+/* Hero 영역 */
 #community-header{
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
   text-align: center;
   padding: 60px 20px;
   border-radius: 8px;
 }
-
-/* 인트로 (헤더 아래 여백 + 이미지 섹션) */
-#community-intro {
-  text-align: center;
-  padding: 40px 20px 10px;
+#community-header img {
+  max-width: 120px;
+  display:block;
+  margin:0 auto 15px;
 }
-#community-intro img {
-  max-width: 180px;
-  margin-bottom: 10px;
-  opacity: 0.9;
-}
-#community-intro p {
-  color: #444;
-  font-size: 1.1em;
-}
-
-/* 게시판 가로 배치 */
-#community-boards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 40px 20px 60px;
-}
-.board-section {
-  flex: 1 1 300px;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-.board-section textarea {
-  width: 100%;
-  height: 80px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  resize: none;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-.board-section button {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #1E90FF;
+#community-header p {
   color: #fff;
-  cursor: pointer;
-}
-.board-section button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+  font-size:1.1em;
+  margin-bottom:10px;
 }
 
-/* 게시판 색상 */
-#free-board { background: #FFDDEE; } /* 연분홍 */
-#request-board { background: #FFFACD; } /* 연노랑 */
-#advertise-board { background: #CCFFCC; } /* 연그린 */
+/* 게시판 카드 */
+.board-card {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 25px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  background:#fefefe;
+}
+
+/* 탭 버튼 */
+.board-tabs { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.tab-btn {
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  background:#f3f4f6;
+  cursor:pointer;
+  transition:0.3s;
+}
+.tab-btn.active, .tab-btn:hover { background:#4f46e5; color:#fff; }
+
+/* 안내 문구 */
+.board-info {
+  text-align:center;
+  color:#555;
+  margin-bottom:15px;
+  font-size:1em;
+  opacity:0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.board-info.show { opacity:1; transform: translateY(0); }
+
+/* CommentBox 높이 조절 */
+.commentbox { min-height:400px; }
 </style>
 </head>
 <body>
@@ -140,107 +84,69 @@ header { display: flex; align-items: center; justify-content: space-between; pad
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-    <a href="#" id="loginBtn">Login ▾</a>
   </nav>
 </header>
 
+<!-- Hero 영역 -->
 <div id="community-header">
-  <h1>Welcome to the Community Hub</h1>
-  <p>Connect, Share, and Discover with fellow users</p>
+  <img src="pen.png" alt="Community illustration">
+  <h1>Welcome to the UtilCentral Community!</h1>
+  <p>Here you can read, share, and discuss ideas with fellow users. Everyone is welcome to explore posts, and only members can contribute.</p>
+  <p>Sign in to join the conversation, post your thoughts, suggest new tools, or share partnerships. Let's make UtilCentral a better place together!</p>
 </div>
 
-<!-- 여백 + 일러스트 추가 -->
-<section id="community-intro">
-  <img src="pen.png" alt="Community illustration">
-  <p>Share your ideas, collaborate with others, and make UtilCentral better together 🌱</p>
-</section>
-
-<div id="community-boards">
-  <!-- Free Board -->
-  <section class="board-section" id="free-board">
-    <h2>Free Board</h2>
-    <textarea id="fb-post-content" placeholder="Write your post here..." disabled></textarea>
-    <button id="fb-post-btn" class="post-btn" disabled>Post</button>
-    <div id="fb-posts"></div>
-  </section>
-
-  <!-- Request / Suggest -->
-  <section class="board-section" id="request-board">
-    <h2>Request / Suggest</h2>
-    <textarea id="rs-post-content" placeholder="Submit your suggestion..." disabled></textarea>
-    <button id="rs-post-btn" class="post-btn" disabled>Send</button>
-    <div id="rs-posts"></div>
-  </section>
-
-  <!-- Partner / Advertise -->
-  <section class="board-section" id="advertise-board">
-    <h2>Partner / Advertise</h2>
-    <textarea id="ad-post-content" placeholder="Write your advertisement or partnership request..." disabled></textarea>
-    <button id="ad-post-btn" class="post-btn" disabled>Post</button>
-    <div id="ad-posts"></div>
-  </section>
+<!-- 게시판 카드 -->
+<div class="board-card">
+  <div class="board-tabs">
+    <button class="tab-btn active" onclick="loadBoard('notice', this)">Notice</button>
+    <button class="tab-btn" onclick="loadBoard('freeboard', this)">Free Board</button>
+    <button class="tab-btn" onclick="loadBoard('request', this)">Request / Suggest</button>
+    <button class="tab-btn" onclick="loadBoard('advertise', this)">Partner / Advertise</button>
+  </div>
+  <div id="comment-container">
+    <!-- JS에서 탭별 게시판 로드 -->
+  </div>
 </div>
 
 <footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>UtilCentral</h4>
-      <p>Your ultimate collection of free, fast, and essential online web utilities. Built for efficiency.</p>
-      <p style="margin-top: 15px;"></p>
-    </div>
-    <div class="footer-section">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="https://imagetool.info">ImageTool</a></li>
-        <li><a href="https://fixlo.info">Fixlo</a></li>
-        <li><a href="https://solvekit.info">Solvekit</a></li>
-        <li><a href="https://financetools.info">FinanceTools</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Legal & Support</h4>
-      <ul>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="blog.html">Blog & Tutorials</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 UtilCentral. All Rights Reserved.</p>
+  <div style="max-width:1200px;margin:0 auto;padding:20px;text-align:center;color:#888;font-size:0.9em;">
+    &copy; 2025 UtilCentral. All Rights Reserved.
   </div>
 </footer>
 
+<!-- CommentBox 스크립트 -->
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
 <script>
-const auth = firebase.auth();
+const boardInfoTexts = {
+  notice: "Important updates and announcements. Everyone can read, members can comment.",
+  freeboard: "Share any thoughts or discussions. Everyone can read, members can post.",
+  request: "Submit feature requests or suggestions. Everyone can read, members can contribute.",
+  advertise: "Post partnership or advertisement inquiries. Members only can post."
+};
 
-document.getElementById('loginBtn').addEventListener('click', () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider)
-    .then(result => {
-      alert("Login successful: " + result.user.displayName);
-      document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = false);
-    })
-    .catch(error => {
-      console.error(error);
-      alert("Login failed: " + error.message);
-    });
-});
+function loadBoard(boardName, el) {
+  // 탭 활성화
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  el.classList.add('active');
 
-auth.onAuthStateChanged(user => {
-  if (user) {
-    document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = false);
-  } else {
-    document.querySelectorAll('textarea, .post-btn').forEach(el => el.disabled = true);
-  }
+  // CommentBox 로드
+  const container = document.getElementById('comment-container');
+  container.innerHTML =
+    `<div class="board-info">${boardInfoTexts[boardName]}</div>
+     <div class="commentbox" data-commentbox-id="${boardName}"></div>`;
+
+  // 안내문 애니메이션
+  const infoEl = container.querySelector('.board-info');
+  setTimeout(() => infoEl.classList.add('show'), 50);
+
+  // CommentBox 초기화
+  commentBox('5656613050384384-proj', { defaultBoxId: boardName });
+}
+
+// 페이지 로드 시 기본 탭
+document.addEventListener('DOMContentLoaded', () => {
+  loadBoard('notice', document.querySelector('.tab-btn.active'));
 });
 </script>
 
